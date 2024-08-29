@@ -4,6 +4,7 @@ int main(){
   int operacao;
   printf("voce quer fazer qual operação?\n 1.multiplicação(1)\n2.soma(2)\n3.subritação(3)\n!use os caraquiteres mostrado!\nqual operação: ");
   scanf("%d", &operacao);
+  int x = 1;
   while (x != 0){
     if(operacao == 1){
       
