@@ -6,7 +6,7 @@ int main(){
   int x = 1;
   char res[] = "s";
   while (x != 0){
-  printf("voce quer fazer qual operação?\n 1.multiplicação(1)\n2.soma(2)\n3.subritação(3)\n!use os caraquiteres mostrado!\nqual operação: ");
+  printf("voce quer fazer qual operação?\n 1.Multiplicação(1)\n2.Soma(2)\n3.Subritação(3)\n4.Divisão(4)\n!use os caraquiteres mostrado!\nqual operação: ");
   scanf("%d", &operacao);
     if(operacao == 1){
       
@@ -61,6 +61,27 @@ int main(){
       int sub;
       sub = numero01 + numero02;
       printf("A subritação de %d - %d é igual a: %d\n", numero01, numero02, sub);
+
+      printf("Voce deseja fazer outra operacao?(s/n) ");
+      scanf("%s", &res);
+      if (strcmp(res, "s")){
+        x = 0;
+      }
+      else {
+        x = 1;
+      }
+    }
+    else if (operacao == 4){
+
+      float numero01;
+      float numero02;
+      printf("Digite o primeiro numero: ");
+      scanf("%f", &numero01);
+      printf("Digite o segundo numero: ");
+      scanf("%f", &numero02);
+      float divisao = numero01 / numero02;
+      
+      printf("A divisão de %.2f / %.2f é igual a: %.2f\n", numero01, numero02, divisao);
 
       printf("Voce deseja fazer outra operacao?(s/n) ");
       scanf("%s", &res);
