@@ -11,13 +11,13 @@ int main(){
     };
     char move[3];
     int dest_x, dest_y;
-    
+
     while(1){
 
         int i, j;
 
         printf("  a   b   c \n");
-        for (i = 0; i < 5; i++) {  // Usando a variável i declarada anteriormente
+        for (i = 0; i < 5; i++) {
             if((5-i) % 2 != 0){
                 switch (5-i)
                 {
@@ -34,7 +34,7 @@ int main(){
             } else{
                 printf("  ");
             }
-            for (j = 0; j < 5; j++) {  // Usando a variável j declarada anteriormente
+            for (j = 0; j < 5; j++) {
                 printf("%c ", tabuleiro[i][j]);
             }
             if((5-i) % 2 != 0){
@@ -55,8 +55,8 @@ int main(){
             }
         }
         printf("  a   b   c \n");
-        
-        
+
+
         // Converter o movimento para coordenadas da matriz
         int set = 1;
         while (set==1){
@@ -78,32 +78,35 @@ int main(){
                 dest_x = 0;
                 break;
             default:
-                printf("Coordenadas invalidas, por favor insira novamente!\n");
+                printf("Coordenadas invalidas, por favor insira novamente! l1\n");
+                continue;
             }
             switch (move[0]){
             case 'a':
                 dest_y = 0;
+                set = 0;
                 break;
             case 'b':
                 dest_y = 2;
+                set = 0;
                 break;
             case 'c':
                 dest_y = 4;
+                set = 0;
                 break;
             default:
-                printf("Coordenadas invalidas, por favor insira novamente!\n");
+                printf("Coordenadas invalidas, por favor insira novamente!l2\n");
+                continue;
             }
-            //teste
-            printf("%i,", dest_x);
-            printf(" %i\n", dest_y);
-            set = 0;
+            // //teste
+            // printf("%i,", dest_x);
+            // printf(" %i\n", dest_y);
         }
         if (move[0] == 'q') {
             break;
         }
-        char dest = tabuleiro[dest_x][dest_y];
 
     }
- 
+
     return 0;
 }
