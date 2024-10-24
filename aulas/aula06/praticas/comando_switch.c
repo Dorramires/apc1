@@ -43,8 +43,9 @@ int main() {
     }
 
 
+    int opcao = 0;
 
-    while (1){
+    while (opcao != 5){
         printf("MENU PRINCIPAL\n");
         printf("----------------\n");
         printf("1 - Consultar saldo\n");
@@ -55,7 +56,6 @@ int main() {
         printf("Entre com a opcao => ");
 
 
-        int opcao = 0;
         scanf("%i", &opcao);
 
         switch (opcao){
