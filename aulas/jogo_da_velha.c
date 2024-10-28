@@ -49,23 +49,19 @@ int main() {
             int set = 1;
             while (set == 1 && fora == 1) {
                 printf("Digite seu movimento (ex: a3) ou 'q' para sair: ");
-                scanf("%s", move);
+                scanf("%2s", move);
 
                 if (move[0] == 'q') {
                     return 0;
                 }
 
-                
-                dest_x = -1;
-                dest_y = -1;
-
-                
                 switch (move[1]) {
                     case '1': dest_x = 4; break;
                     case '2': dest_x = 2; break;
                     case '3': dest_x = 0; break;
                     default:
-                        printf("Coordenadas inválidas, tente novamente.\n");
+                        printf("Coordenadas invalidas, tente novamente.\n");
+                        while (getchar() != '\n');
                         continue;
                 }
 
@@ -75,19 +71,15 @@ int main() {
                     case 'b': dest_y = 2; set = 0; break;
                     case 'c': dest_y = 4; set = 0; break;
                     default:
-                        printf("Coordenadas inválidas, tente novamente.\n");
+                        printf("Coordenadas invalidas, tente novamente.\n");
+                        while (getchar() != '\n');
                         continue;
-                }
-
-                // Se dest_x ou dest_y ainda tiverem valores inválidos, pedir nova entrada
-                if (dest_x == -1 || dest_y == -1) {
-                    printf("Coordenadas inválidas, tente novamente.\n");
-                    continue;
                 }
 
                 // Validar movimento
                 if (tabuleiro[dest_x][dest_y] != ' ') {
-                    printf("Movimento inválido! Jogue novamente.\n");
+                    printf("Movimento invalido! Jogue novamente.\n");
+                    while (getchar() != '\n');
                     set = 1;
                 } else {
                     quem = (turno == 1) ? 'x' : 'o';
@@ -95,14 +87,14 @@ int main() {
                     ++usados;
 
                     // Verificar condições de vitória ou velha
-                    if ((tabuleiro[0][0] == quem && tabuleiro[2][2] == quem && tabuleiro[4][4] == quem) ||  // Diagonal principal
-                        (tabuleiro[0][4] == quem && tabuleiro[2][2] == quem && tabuleiro[4][0] == quem) ||  // Diagonal secundária
-                        (tabuleiro[0][0] == quem && tabuleiro[2][0] == quem && tabuleiro[4][0] == quem) ||  // Coluna esquerda
-                        (tabuleiro[0][2] == quem && tabuleiro[2][2] == quem && tabuleiro[4][2] == quem) ||  // Coluna central
-                        (tabuleiro[0][4] == quem && tabuleiro[2][4] == quem && tabuleiro[4][4] == quem) ||  // Coluna direita
-                        (tabuleiro[0][0] == quem && tabuleiro[0][2] == quem && tabuleiro[0][4] == quem) ||  // Linha superior
-                        (tabuleiro[2][0] == quem && tabuleiro[2][2] == quem && tabuleiro[2][4] == quem) ||  // Linha central
-                        (tabuleiro[4][0] == quem && tabuleiro[4][2] == quem && tabuleiro[4][4] == quem)) {  // Linha inferior
+                    if ((tabuleiro[0][0] == quem && tabuleiro[2][2] == quem && tabuleiro[4][4] == quem) ||  // Diagonal 1
+                        (tabuleiro[0][4] == quem && tabuleiro[2][2] == quem && tabuleiro[4][0] == quem) ||  // Diagonal 2
+                        (tabuleiro[0][0] == quem && tabuleiro[2][0] == quem && tabuleiro[4][0] == quem) ||  // Coluna a
+                        (tabuleiro[0][2] == quem && tabuleiro[2][2] == quem && tabuleiro[4][2] == quem) ||  // Coluna b
+                        (tabuleiro[0][4] == quem && tabuleiro[2][4] == quem && tabuleiro[4][4] == quem) ||  // Coluna c
+                        (tabuleiro[0][0] == quem && tabuleiro[0][2] == quem && tabuleiro[0][4] == quem) ||  // Linha 3
+                        (tabuleiro[2][0] == quem && tabuleiro[2][2] == quem && tabuleiro[2][4] == quem) ||  // Linha 2
+                        (tabuleiro[4][0] == quem && tabuleiro[4][2] == quem && tabuleiro[4][4] == quem)) {  // Linha 1
 
                         printf("TEMOS UM VENCEDOR!\n");
                         printf("O jogador %s venceu o jogo!\n", turno == 1 ? jogador1 : jogador2);
