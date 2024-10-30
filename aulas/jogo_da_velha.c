@@ -48,7 +48,8 @@ int main() {
             int set = 1;
             while (set == 1 && fora == 1) {
                 printf("Digite seu movimento (ex: a3) ou 'q' para sair: ");
-                scanf("%2s", move);
+                scanf("%s", move);
+                while (getchar() != '\n');
 
                 if (move[0] == 'q') {
                     return 0;
@@ -60,7 +61,6 @@ int main() {
                     case '3': dest_x = 0; break;
                     default:
                         printf("Coordenadas invalidas, tente novamente.\n");
-                        while (getchar() != '\n');
                         continue;
                 }
 
@@ -71,14 +71,12 @@ int main() {
                     case 'c': dest_y = 4; set = 0; break;
                     default:
                         printf("Coordenadas invalidas, tente novamente.\n");
-                        while (getchar() != '\n');
                         continue;
                 }
 
                 // Validar movimento
                 if (tabuleiro[dest_x][dest_y] != ' ') {
                     printf("Movimento invalido! Jogue novamente.\n");
-                    while (getchar() != '\n');
                     set = 1;
                 } else {
                     quem = (turno == 1) ? 'x' : 'o';
