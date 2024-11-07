@@ -109,7 +109,24 @@ int main() {
                                     (tabuleiro[0][0] == quem && tabuleiro[0][2] == quem && tabuleiro[0][4] == quem) ||  // Linha 3
                                     (tabuleiro[2][0] == quem && tabuleiro[2][2] == quem && tabuleiro[2][4] == quem) ||  // Linha 2
                                     (tabuleiro[4][0] == quem && tabuleiro[4][2] == quem && tabuleiro[4][4] == quem)) {  // Linha 1
-
+                                    system("clear");
+                                    printf("  a   b   c \n");
+                                    for (int i = 0; i < 5; i++) {
+                                        if ((5 - i) % 2 != 0) {
+                                            printf("%d ", (5 - i) / 2 + 1);
+                                        } else {
+                                            printf("  ");
+                                        }
+                                        for (int j = 0; j < 5; j++) {
+                                            printf("%c ", tabuleiro[i][j]);
+                                        }
+                                        if ((5 - i) % 2 != 0) {
+                                            printf("%d\n", (5 - i) / 2 + 1);
+                                        } else {
+                                            printf("\n");
+                                        }
+                                    }
+                                    printf("  a   b   c \n");
                                     printf("TEMOS UM VENCEDOR!\n");
                                     printf("O jogador %s venceu o jogo!\n", turno == 1 ? jogador1 : jogador2);
                                     fora = 0;
@@ -136,7 +153,18 @@ int main() {
                 }
                 break;
             case 2 :
-            printf("Caracteres\n");
+                system("clear");
+                printf("===============================\n\n");
+                printf("* * * NOME DOS JOGADORES * * *\n\n");
+                printf("===============================\n\n");
+                printf("Digite o nome do jogador 1:\n->");
+                scanf("%s", jogador1);
+                printf("\n\nDigite o nome do jogador 2:\n->");
+                scanf("%s", jogador2);
+
+                //teste
+                // printf("jogador 1 =%s e jogador 2 =%s", jogador1, jogador2);
+                // getchar();
                 break;
             case 3 :
             printf("SEUS RECORDES\n");

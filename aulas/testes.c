@@ -1,112 +1,58 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-int main() {
-    int fora;
-    while (1) {
-        char tabuleiro[5][5] = {
-            {' ', '|', ' ', '|', ' '},
-            {'-', '|', '-', '|', '-'},
-            {' ', '|', ' ', '|', ' '},
-            {'-', '|', '-', '|', '-'},
-            {' ', '|', ' ', '|', ' '},
-        };
-        char move[3];
-        int dest_x, dest_y;
-        int turno = 1;
-        char quem;
-        char jogador1[10] = "Matheus";
-        char jogador2[10] = "Lucas";
-        int usados = 0;
-        fora = 1;
+int main (){
+    int opcao = 0;
+    char jogador1[20];
+    char jogador2[20];
 
-        while (fora == 1) {
-            system("clear");  // Limpar o terminal para exibir a jogada atual
-            printf("Vez do %s!\n", turno == 1 ? jogador1 : jogador2);
+    while ( opcao != 4){
+    opcao = 0;
+    system("clear");
+    printf("MENU PRINCIPAL\n\n");
+    printf("1 - Iniciar jogo\n");
+    printf("2 - Nome dos jogadores\n");
+    printf("3 - Recordes\n");
+    printf("4 - sair\n");
+    printf("Entre com uma opcao:");
+    scanf("%i", &opcao);
+    while (getchar() != '\n');
 
-            // Exibir o tabuleiro
-            printf("  a   b   c \n");
-            for (int i = 0; i < 5; i++) {
-                if ((5 - i) % 2 != 0) {
-                    printf("%d ", (5 - i) / 2 + 1);
-                } else {
-                    printf("  ");
-                }
-                for (int j = 0; j < 5; j++) {
-                    printf("%c ", tabuleiro[i][j]);
-                }
-                if ((5 - i) % 2 != 0) {
-                    printf("%d\n", (5 - i) / 2 + 1);
-                } else {
-                    printf("\n");
-                }
-            }
-            printf("  a   b   c \n");
+    switch (opcao) {
+        case 1 :{ 
+        
+            break;
+        case 2 :
+            system("clear");
+            printf("===============================\n\n");
+            printf("* * * NOME DOS JOGADORES * * *\n\n");
+            printf("===============================\n\n");
+            printf("Digite o nome do jogador 1:\n->");
+            scanf("%s", jogador1);
+            printf("\n\nDigite o nome do jogador 2:\n->");
+            scanf("%s", jogador2);
 
-            // Capturar o movimento do jogador
-            int set = 1;
-            while (set == 1 && fora == 1) {
-                printf("Digite seu movimento (ex: a3) ou 'q' para sair: ");
-                scanf("%2s", move);
-
-                if (move[0] == 'q') return 0;  // Sair do jogo
-
-                switch (move[1]) {
-                    case '1': dest_x = 4; break;
-                    case '2': dest_x = 2; break;
-                    case '3': dest_x = 0; break;
-                    default:
-                        printf("Coordenadas inválidas, tente novamente.\n");
-                        continue;
-                }
-
-                switch (move[0]) {
-                    case 'a': dest_y = 0; set = 0; break;
-                    case 'b': dest_y = 2; set = 0; break;
-                    case 'c': dest_y = 4; set = 0; break;
-                    default:
-                        printf("Coordenadas inválidas, tente novamente.\n");
-                        continue;
-                }
-
-                // Validar se a posição está livre
-                if (tabuleiro[dest_x][dest_y] != ' ') {
-                    printf("Movimento inválido! Jogue novamente.\n");
-                    set = 1;
-                } else {
-                    quem = (turno == 1) ? 'x' : 'o';
-                    tabuleiro[dest_x][dest_y] = quem;
-                    ++usados;
-
-                    // Verificar condições de vitória
-                    if ((tabuleiro[0][0] == quem && tabuleiro[2][2] == quem && tabuleiro[4][4] == quem) ||  // Diagonal principal
-                        (tabuleiro[0][4] == quem && tabuleiro[2][2] == quem && tabuleiro[4][0] == quem) ||  // Diagonal secundária
-                        (tabuleiro[0][0] == quem && tabuleiro[2][0] == quem && tabuleiro[4][0] == quem) ||  // Coluna esquerda
-                        (tabuleiro[0][2] == quem && tabuleiro[2][2] == quem && tabuleiro[4][2] == quem) ||  // Coluna central
-                        (tabuleiro[0][4] == quem && tabuleiro[2][4] == quem && tabuleiro[4][4] == quem) ||  // Coluna direita
-                        (tabuleiro[0][0] == quem && tabuleiro[0][2] == quem && tabuleiro[0][4] == quem) ||  // Linha superior
-                        (tabuleiro[2][0] == quem && tabuleiro[2][2] == quem && tabuleiro[2][4] == quem) ||  // Linha central
-                        (tabuleiro[4][0] == quem && tabuleiro[4][2] == quem && tabuleiro[4][4] == quem)) {  // Linha inferior
-
-                        printf("TEMOS UM VENCEDOR!\n");
-                        printf("O jogador %s venceu o jogo!\n", turno == 1 ? jogador1 : jogador2);
-                        fora = 0;
-                    } else if (usados == 9) {
-                        printf("Que pena, o jogo deu velha.\nVamos jogar novamente?\n");
-                        fora = 0;
-                    }
-
-                    turno = 3 - turno;  // Alternar entre jogador 1 e 2
-                }
-            }
-
-            if (fora == 0) {
-                printf("Pressione Enter para jogar novamente...\n");
-                getchar();
-                getchar();  // Esperar o jogador pressionar Enter para reiniciar
-            }
+            //teste
+            printf("jogador 1 =%s e jogador 2 =%s", jogador1, jogador2);
+            getchar();
+            break;
         }
+        case 3 :{
+        printf("SEUS RECORDES\n");
+            break;
+        }
+        case 4 :
+        printf("Ate mais");
+            break;
+        default: ("Opcao invalida. Tente novamente!");
     }
+    if (opcao != 4){
+            printf("Pressione ENTER para continuar...");
+            getchar();
+    }
+    }
+
+
+
     return 0;
 }
