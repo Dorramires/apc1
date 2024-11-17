@@ -14,7 +14,7 @@ int main (){
         printf("MENU PRINCIPAL\n\n");
         printf("1 - Iniciar jogo\n");
         printf("2 - Nome dos jogadores\n");
-        printf("3 - Recordes\n");
+        printf("3 - Regras do jogo\n");
         printf("4 - sair\n");
         printf("Entre com uma opcao:");
         scanf("%i", &opcao);
@@ -69,7 +69,13 @@ int main (){
                 break;
             
             case 3 :
-                printf("SEUS RECORDES\n");
+                system("clear");
+                printf("REGRAS DO JOGO\n");
+                printf("1.Comeco do jogo: O jogador que usa o X comeca.\n\n");
+                printf("2.Turnos alternados: Os jogadores se alternam colocando seus simbolos em uma das 9 celulas do tabuleiro. O jogador nao pode escolher uma celula ja ocupada.\n\n");
+                printf("3.Ganha quem formar uma linha: O jogo termina quando um jogador consegue formar uma linha (horizontal, vertical ou diagonal) de 3 simbolos iguais.\n\n");
+                printf("4.Empate: Se todas as 9 celulas forem preenchidas e ninguem formar uma linha, o jogo termina empatado.\n\n");
+                
                 break;
             
             case 4 :

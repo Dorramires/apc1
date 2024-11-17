@@ -200,7 +200,9 @@ int main() {
                 break;
             case 3 :
                 system("clear");
-                printf("REGRAS DO JOGO\n");
+                printf("===============================\n\n");
+                printf("* * * REGRAS DO JOGO* * * \n");
+                printf("===============================\n\n");
                 printf("1.Comeco do jogo: O jogador que usa o X comeca.\n\n");
                 printf("2.Turnos alternados: Os jogadores se alternam colocando seus simbolos em uma das 9 celulas do tabuleiro. O jogador nao pode escolher uma celula ja ocupada.\n\n");
                 printf("3.Ganha quem formar uma linha: O jogo termina quando um jogador consegue formar uma linha (horizontal, vertical ou diagonal) de 3 simbolos iguais.\n\n");
